@@ -1,6 +1,9 @@
 {
   "name": "lunary",
   "private": "true",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "start": "bun --filter './packages/frontend' --filter './packages/backend' start",
     "start:backend": "bun --filter './packages/backend' start",
