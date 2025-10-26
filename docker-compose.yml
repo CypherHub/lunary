@@ -1,42 +1,30 @@
 version: '3.8'
 
 services:
-  backend:
-    build:
-      context: .
-      target: backend
+  app:
+    build: .
     ports:
-      - "3333:3333"
+      - "8080:8080"  # Frontend
+      - "3333:3333"  # Backend API
     environment:
-      DATABASE_URL: ${DATABASE_URL}
-      JWT_SECRET: ${JWT_SECRET}
-      APP_URL: ${APP_URL}
-      API_URL: ${API_URL}
-      # Add other backend env vars
+      DATABASE_URL: postgresql://lunary:lunary123@db:5432/lunary
+      JWT_SECRET: your-jwt-secret-change-this
+      APP_URL: http://localhost:8080
+      API_URL: http://localhost:3333
+      NEXT_PUBLIC_API_URL: http://localhost:3333
     depends_on:
       - db
-
-  frontend:
-    build:
-      context: .
-      target: frontend
-    ports:
-      - "8080:8080"
-    environment:
-      API_URL: ${API_URL}
-      NEXT_PUBLIC_API_URL: ${API_URL}
-      # Add other frontend env vars
-    depends_on:
-      - backend
 
   db:
     image: postgres:15
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-lunary}
-      POSTGRES_USER: ${POSTGRES_USER:-lunary}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: lunary
+      POSTGRES_USER: lunary
+      POSTGRES_PASSWORD: lunary123
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
 
 volumes:
   postgres_data:
