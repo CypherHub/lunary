@@ -12,4 +12,4 @@ RUN npm install
 EXPOSE 3333 8080
 
 # Run development server
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "run" "migrate:db" "&&" "npm", "run", "dev"]
