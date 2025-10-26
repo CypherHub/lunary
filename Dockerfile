@@ -11,5 +11,7 @@ RUN npm install
 # Expose ports
 EXPOSE 3333 8080
 
+RUN npm run migrate:db
+
 # Run development server
-CMD ["npm", "run", "run" "migrate:db" "&&" "npm", "run", "dev"]
+CMD ["npm", "run", "dev"]
