@@ -5,8 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "bun index.ts",
-    "dev": "bun --watch index.ts"
+    "start": "PORT=3000 bun index.ts",
+    "dev": "PORT=3000 bun --watch index.ts"
   },
   "author": "",
   "license": "ISC",

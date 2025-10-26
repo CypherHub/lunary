@@ -16,7 +16,7 @@ COPY . .
 RUN npm install
 
 # Expose ports
-EXPOSE 3333 8080
+EXPOSE 3333 8080 3000
 
 RUN npm run migrate:db
 

@@ -6,6 +6,7 @@ services:
     ports:
       - "8080:8080"  # Frontend
       - "3333:3333"  # Backend API
+      - "3000:3000"  # Tokenizer service
     environment:
       DATABASE_URL: postgresql://lunary:lunary123@db:5432/lunary
       JWT_SECRET: your-jwt-secret-change-this
