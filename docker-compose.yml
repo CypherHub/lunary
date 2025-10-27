@@ -8,24 +8,8 @@ services:
       - "3333:3333"  # Backend API
       - "3000:3000"  # Tokenizer service
     environment:
-      DATABASE_URL: postgresql://lunary:lunary123@db:5432/lunary
+      DATABASE_URL: postgresql://postgres:xdkfjZgTJJDjLFXDxqqyiryNZyUyMuaO@trolley.proxy.rlwy.net:13061/railway
       JWT_SECRET: your-jwt-secret-change-this
-      APP_URL: http://localhost:8080
-      API_URL: http://localhost:3333
-      NEXT_PUBLIC_API_URL: http://localhost:3333
-    depends_on:
-      - db
-
-  db:
-    image: postgres:15
-    environment:
-      POSTGRES_DB: lunary
-      POSTGRES_USER: lunary
-      POSTGRES_PASSWORD: lunary123
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-
-volumes:
-  postgres_data:
+      APP_URL: http://lunary.188.245.152.205.sslip.io
+      API_URL: http://lunary.188.245.152.205.sslip.io:3333
+      NEXT_PUBLIC_API_URL: http://lunary.188.245.152.205.sslip.io:3333
