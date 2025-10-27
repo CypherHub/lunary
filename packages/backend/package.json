@@ -6,7 +6,7 @@
     "start:realtime-evaluators": "bun run src/realtime-evaluators.ts",
     "dev:realtime-evaluators": "bun run --watch src/realtime-evaluators.ts",
     "migrate:db": "bun run src/migrate.ts",
-    "dev": "bun run --watch src/index.ts"
+    "dev": "PORT=3333 bun run --watch src/index.ts"
   },
   "dependencies": {
     "@ai-sdk/amazon-bedrock": "^2.2.8",
